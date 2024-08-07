@@ -9,9 +9,9 @@ const Copyright = () => {
         alt="logo"
       />
       <ul className="flex gap-5 justify-around font-normal text-base text-gray-600">
-        <li className="border-r m-2 pr-5">Terms of Use</li>
-        <li className="border-r m-2 pr-5">Privacy Policy</li>
-        <li className="m-2 p-5">Cookie Policy</li>
+        <li className="border-r m-2 pr-7">Terms of Use</li>
+        <li className="border-r m-2 pr-7">Privacy Policy</li>
+        <li className="m-2 ">Cookie Policy</li>
       </ul>
     </div>
   );
