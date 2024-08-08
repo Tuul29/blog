@@ -4,7 +4,7 @@ import Copyright from "./copyright";
 
 const Footer = () => {
   return (
-    <div>
+    <div className="bg-slate-100 p-[50px]">
       <Content />
       <Copyright />
     </div>

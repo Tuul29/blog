@@ -1,23 +1,38 @@
 import React from "react";
 import { CiSquareChevLeft } from "react-icons/ci";
 import { CiSquareChevRight } from "react-icons/ci";
+import { useState, useEffect } from "react";
+import CoverCard from "./cover";
 const Hero = () => {
+  console.log("HOME FUNCTION");
+  const [articles, setArticles] = useState([]);
+  const [count, setCount] = useState(0);
+
+  const getArticleData = async () => {
+    const response = await fetch(
+      "https://dev.to/api/articles?page=5&per_page=1"
+    );
+    const data = await response.json();
+    setArticles(data);
+    console.log("DOWNLOADED DATA");
+  };
+
+  useEffect(() => {
+    console.log("EFFECT");
+    getArticleData();
+  }, []);
   return (
     <div>
-      <div className="bg-contain bg-center background-image: url(@/photo/Logo.png) items-center">
-        <div className="w-[598px] h-[252px] rounded-lg  object-left-bottom">
-          <button className="rounded-lg bg-sky-700 text-white p-1 text-[14px]">
-            Technology
-          </button>
-          <h3 className="text-4xl">
-            Grid system for better Design User Interface
-          </h3>
-          <p className="text-sm text-slate-400">August 20, 2022</p>
+      <div className="flex flex-col items-center justify-center">
+        <div className="flex flex-wrap max-w-[1280px] m-auto gap-4">
+          {articles?.map((article) => (
+            <CoverCard article={article} />
+          ))}
         </div>
-      </div>
-      <div className="flex gap-2 ">
-        <CiSquareChevLeft className="size-10" />
-        <CiSquareChevRight className="size-10" />
+        <div className="flex gap-2 ">
+          <CiSquareChevLeft className="size-10" />
+          <CiSquareChevRight className="size-10" />
+        </div>
       </div>
     </div>
   );

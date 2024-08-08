@@ -3,7 +3,7 @@ import Menu from "./menu";
 import Search from "./search";
 const Header = () => {
   return (
-    <div className="flex justify-around">
+    <div className="flex justify-around pt-[20px]">
       <img className="w-[158px] h-9" src="./photo/Logo.png" alt="Logo" />
       <Menu />
       <Search />
