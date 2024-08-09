@@ -1,11 +1,14 @@
 import React from "react";
-import { CiSearch } from "react-icons/ci";
+import { useState } from "react";
 const Search = () => {
   return (
-    <button className="flex gap-3 border rounded-md bg-slate-100 w-[166px] h-9 items-center p-2 justify-between">
-      <p className="text-sm text-gray-400">Search</p>
-      <CiSearch />
-    </button>
+    <div>
+      <input
+        type="text"
+        placeholder="Search "
+        className="p-1 border border-solid"
+      />
+    </div>
   );
 };
 

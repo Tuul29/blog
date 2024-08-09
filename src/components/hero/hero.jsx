@@ -23,13 +23,13 @@ const Hero = () => {
   }, []);
   return (
     <div>
-      <div className="flex flex-col items-center justify-center">
-        <div className="flex flex-wrap max-w-[1280px] m-auto gap-4">
+      <div className="flex flex-col ">
+        <div className="flex flex-wrap max-w-[1280px] m-auto gap-4 items-center justify-center">
           {articles?.map((article) => (
             <CoverCard article={article} />
           ))}
         </div>
-        <div className="flex gap-2 ">
+        <div className="flex justify-end gap-2 mr-[450px] p-5">
           <CiSquareChevLeft className="size-10" />
           <CiSquareChevRight className="size-10" />
         </div>

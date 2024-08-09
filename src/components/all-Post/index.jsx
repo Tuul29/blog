@@ -20,10 +20,12 @@ const AllCards = () => {
     getArticleData();
   }, []);
   return (
-    <div className="flex flex-col items-center justify-center">
-      <h1>All Blog Post</h1>
-      <div className="flex justify-between">
-        <ul className="flex">
+    <div className="flex flex-col ">
+      <h1 className="ml-[400px] text-2xl font-bold leading-7 p-4">
+        All Blog Post
+      </h1>
+      <div className="flex justify-between mx-[400px]">
+        <ul className="flex gap-6">
           <li>All</li>
           <li>Design</li>
           <li>Travel</li>
@@ -33,7 +35,7 @@ const AllCards = () => {
         </ul>
         <button>View All</button>
       </div>
-      <div className="flex flex-wrap max-w-[1280px] m-auto gap-6">
+      <div className="flex flex-wrap max-w-[1280px] m-auto gap-6 items-center justify-center">
         {articles?.map((article) => (
           <Cards article={article} />
         ))}

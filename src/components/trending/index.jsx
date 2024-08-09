@@ -21,9 +21,9 @@ const PostCards = () => {
     getArticleData();
   }, []);
   return (
-    <div className="flex flex-col items-center justify-center">
-      <h1>Trending</h1>
-      <div className="flex flex-wrap max-w-[1280px] m-auto gap-4">
+    <div className="flex flex-col ">
+      <h1 className="text-2xl font-bold leading-7 ml-[450px] p-5">Trending</h1>
+      <div className="flex flex-wrap max-w-[1280px] m-auto gap-4 items-center justify-center">
         {articles?.map((article) => (
           <Card article={article} />
         ))}
