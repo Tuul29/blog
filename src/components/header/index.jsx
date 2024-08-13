@@ -1,35 +1,34 @@
-import React from "react";
-import Menu from "./menu";
-import Search from "./search";
+import React, { useContext } from "react";
+import Link from "next/link";
+import { MyContext } from "@/provider/provider";
 
 const Header = () => {
+  const { setSearchValue } = useContext(MyContext);
+  const handleChange = (e) => {
+    setSearchValue(e.target.value);
+  };
   return (
-    <div className="flex justify-around pt-[20px]">
-      <img className="w-[158px] h-9" src="./photo/Logo.png" alt="Logo" />
-      <Menu />
-      <Search />
-    </div>
+    <header className="flex max-w-[1200px] m-auto justify-between p-5 items-center sticky z-40">
+      <img src="./images/metaLogo.png" alt="logo" className="h-8 w-36" />
+      <ul className="flex gap-10">
+        <li>
+          <Link href="/">Home</Link>
+        </li>
+        <li>
+          <Link href="/blog">Blog</Link>
+        </li>
+        <li>
+          <Link href="/contact">Contact</Link>
+        </li>
+      </ul>
+      <input
+        type="text"
+        placeholder="Search"
+        onChange={handleChange}
+        className="p-1 border border-solid"
+      />
+    </header>
   );
 };
 
 export default Header;
-
-// import Articles from "@/pages/articles";
-// import Articles from "@/pages/articles";
-
-// let Articles = [<Articles />];
-// const [searchValue, setSearchValue] = useState("");
-// const [users, setUsers] = useState([<Articles />]);
-// const handleClick = () => {
-//   setUsers();
-// };
-// const handleChange = (text) => {
-//   setSearchValue(text);
-//   const findUser = Articles.filter((user) =>
-//     user.article.title.toLowerCase().includes(text.toLowerCase())
-//   );
-//   setUsers(findUser);
-// };
-// const showClick = () => {
-//   setUsers(profiles);
-// };
