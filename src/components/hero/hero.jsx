@@ -10,7 +10,7 @@ const Hero = () => {
 
   const getArticleData = async () => {
     const response = await fetch(
-      "https://dev.to/api/articles?page=5&per_page=1"
+      "https://dev.to/api/articles?page=2&per_page=5"
     );
     const data = await response.json();
     setArticles(data);
@@ -21,18 +21,30 @@ const Hero = () => {
     console.log("EFFECT");
     getArticleData();
   }, []);
+  const [articleIndex, setArticleIndex] = useState(0);
   return (
-    <div>
-      <div className="flex flex-col ">
-        <div className="flex flex-wrap max-w-[1280px] m-auto gap-4 items-center justify-center">
-          {articles?.map((article) => (
-            <CoverCard article={article} />
-          ))}
-        </div>
-        <div className="flex justify-end gap-2 mr-[450px] p-5">
-          <CiSquareChevLeft className="size-10" />
-          <CiSquareChevRight className="size-10" />
-        </div>
+    <div className="flex flex-col ">
+      <div
+        className="flex max-w-[1280px] m-auto gap-4 items-center transition-all duration-150"
+        style={{ transform: `translateX(-${articleIndex * 100})` }}
+      >
+        {articles?.map((article) => (
+          <CoverCard article={article} />
+        ))}
+      </div>
+      <div className="flex justify-end gap-2 mr-[450px] p-5">
+        <CiSquareChevLeft
+          className="size-10"
+          onClick={() => {
+            setArticleIndex(articleIndex - 1);
+          }}
+        />
+        <CiSquareChevRight
+          className="size-10"
+          onClick={() => {
+            setArticleIndex(articleIndex + 1);
+          }}
+        />
       </div>
     </div>
   );

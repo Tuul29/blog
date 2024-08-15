@@ -4,7 +4,7 @@ import Link from "next/link";
 const CoverCard = ({ article }) => {
   return (
     <Link href={"/blog/" + article.id}>
-      <div className="border p-4 gap-4 rounded-[16px] w-[1219px]">
+      <div className="border p-4 gap-4 rounded-[16px] min-w-full h-full overflow-hidden ">
         <div className="">
           <img
             src={article.social_image ? article.social_image : "/default.avif"}
