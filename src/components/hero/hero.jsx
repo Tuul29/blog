@@ -7,10 +7,10 @@ const Hero = () => {
   console.log("HOME FUNCTION");
   const [articles, setArticles] = useState([]);
   const [count, setCount] = useState(0);
-
+  const [articleIndex, setArticleIndex] = useState(0);
   const getArticleData = async () => {
     const response = await fetch(
-      "https://dev.to/api/articles?page=2&per_page=5"
+      "https://dev.to/api/articles?page=4&per_page=3"
     );
     const data = await response.json();
     setArticles(data);
@@ -21,16 +21,11 @@ const Hero = () => {
     console.log("EFFECT");
     getArticleData();
   }, []);
-  const [articleIndex, setArticleIndex] = useState(0);
+
   return (
     <div className="flex flex-col ">
-      <div
-        className="flex max-w-[1280px] m-auto gap-4 items-center transition-all duration-150"
-        style={{ transform: `translateX(-${articleIndex * 100})` }}
-      >
-        {articles?.map((article) => (
-          <CoverCard article={article} />
-        ))}
+      <div className="overflow-hidden h-[600px]">
+        <CoverCard articles={articles} articleIndex={articleIndex} />
       </div>
       <div className="flex justify-end gap-2 mr-[450px] p-5">
         <CiSquareChevLeft

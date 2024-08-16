@@ -43,7 +43,7 @@ const MyProvider = ({ children }) => {
 
   return (
     <MyContext.Provider
-      value={{ searchValue, setSearchValue, articles, isLoading }}
+      value={{ searchValue, setSearchValue, articles, isLoading, ner: "Tuul" }}
     >
       {children}
     </MyContext.Provider>
